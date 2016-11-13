@@ -1,0 +1,30 @@
+﻿@model Accounting.WebUI.Models.AccountViewModel
+@{
+    ViewBag.Title = "AccountBalance";
+}
+
+<h1>AccountBalance</h1>
+@using (Html.BeginForm("GetBalance", "Account", FormMethod.Post))
+{
+    <h2>
+        <div>
+            @Html.LabelFor(x => x.AccountNumber)
+            @Html.TextBoxFor(x => x.AccountNumber)
+        </div>
+
+        <div>
+            @Html.LabelFor(x => x.AccountBalance)
+            @Html.Label(Model.AccountBalance.ToString())
+        </div>
+
+        <div>
+            @Html.LabelFor(x => x.ServiceId)
+            @Html.TextBoxFor(x => x.ServiceId)
+        </div>
+
+        <div>
+            <button type="submit"> Submit</button>
+        </div>
+    </h2>
+}
+
