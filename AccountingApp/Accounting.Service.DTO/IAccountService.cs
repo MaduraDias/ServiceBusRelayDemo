@@ -3,7 +3,9 @@ using System.ServiceModel;
 
 namespace Accounting.Service.Contracts
 {
+   
     [ServiceContract]
+    
     public interface IAccountService
     {
         [OperationContract]

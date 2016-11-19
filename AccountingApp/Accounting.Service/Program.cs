@@ -12,15 +12,22 @@ namespace Accounting.Service
     {
         static void Main(string[] args)
         {
-            //  Microsoft.ServiceBus.NetTcpRelaySecurity       
             ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.Tcp;
 
-            ServiceHost sh = new ServiceHost(typeof(AccountService));
-
-            sh.Open();
+            ServiceHost accountService = new ServiceHost(typeof(AccountService));
+            accountService.Open();
             Console.WriteLine("Press ENTER to close");
             Console.ReadLine();
-            sh.Close();
+            accountService.Close();
+
+        }
+
+        private static void hostJobService()
+        {
+
+            //ServiceHost jobService = new ServiceHost(typeof(JobService));
+            //jobService.Open();
+            //jobService.Close();
         }
     }
 }
