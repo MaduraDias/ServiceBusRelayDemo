@@ -4,6 +4,12 @@ namespace Accounting.WebUI.Models
 {
     public class AccountViewModel
     {
+
+        public AccountViewModel()
+        {
+            AccountNumber = 1000;
+        }
+
         [DisplayName("Account Number")]
         public long AccountNumber { get; set; }
 

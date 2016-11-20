@@ -1,30 +1,26 @@
-﻿@model Accounting.WebUI.Models.AccountViewModel
+﻿<link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+<link rel="stylesheet" href="~/Content/Site.css" />
+@model Accounting.WebUI.Models.AccountViewModel
 @{
     ViewBag.Title = "AccountBalance";
 }
-
-<h1>AccountBalance</h1>
-@using (Html.BeginForm("GetBalance", "Account", FormMethod.Post))
-{
-    <h2>
-        <div>
+<div>
+    <h1>Account Balance</h1>
+    @using (Html.BeginForm("GetBalance", "Account", FormMethod.Post))
+    {
+        <div class="form-group">
             @Html.LabelFor(x => x.AccountNumber)
-            @Html.TextBoxFor(x => x.AccountNumber)
+            @Html.TextBoxFor(x => x.AccountNumber, new { @class = "form-control" })
         </div>
 
-        <div>
+        <div class="form-group">
             @Html.LabelFor(x => x.AccountBalance)
-            @Html.Label(Model.AccountBalance.ToString())
+            <label>@string.Format("{0:C}", Model.AccountBalance)</label>
         </div>
+        
+        <button type="submit" class="btn btn-default"> Submit</button>
+        
+    }
 
-        <div>
-            @Html.LabelFor(x => x.ServiceId)
-            @Html.TextBoxFor(x => x.ServiceId)
-        </div>
-
-        <div>
-            <button type="submit"> Submit</button>
-        </div>
-    </h2>
-}
+</div>
 
